@@ -42,6 +42,9 @@ namespace Svg.PathsToCircles
                     ConvertToCircles(paths, s.AddRadius);
                 }
             }
+
+            var circles = Root.Descendants().Where(x => x.Name.LocalName == "circle" && x.Attribute("id") == null);
+            circles.ToList().ForEach( x => x.Remove());
         }
 
         protected class SectionGroup
